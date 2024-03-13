@@ -4,11 +4,9 @@ const users= [
     {id: 2, name: 'Петя'},
     {id: 1, name: 'Вася'}
 ];
-const map = new Map();
-const userData = users.map(user =>{
-return map.set(`id:${user.id}`, `name: ${user.name}`);
-});
-const del = userData.find(users => users.id === users.id);
-map.delete(del);
-const uniqueUsers = [...map];
-console.log(uniqueUsers);
+const userId=users.map(user => user.id)
+let setId = new Set(userId);
+let idArr = Array.from(setId);
+let uniqueUser=idArr.map(id => {
+  return users.find(user => user.id === id)});      
+console.log(uniqueUser);

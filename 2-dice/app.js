@@ -1,35 +1,11 @@
 'use strict';
+const dices = ['d4','d6','d8','d8','d10','d12','d16','d20'];
 function random (dice){
-    const diceAll = [
-	{ name: 'd4', min: 1, max:4},
-	{ name: 'd6', min: 1, max:6},
-	{ name: 'd8', min: 1, max:8},
-    { name: 'd10', min: 1, max:10},
-    { name: 'd12', min: 1, max:12},
-    { name: 'd16', min: 1, max:16},
-    { name: 'd20', min: 1, max:20},
-	];	
-     const diceName = diceAll.map(diceAll => {
-        return diceAll.name;
-    });
-    const diceMin = diceAll.map(diceAll => {
-        return diceAll.min;
-    });
-  const diceMax = diceAll.map(diceAll => {
-        return diceAll.max;
-    }); 
-    for (var i = 0; i < diceMin.length; i++){ 
-    if (diceMin[i] === dice){
-        return diceMin[i];}
-    for (var j = 0; j < diceMax.length; j++){     
-    if (diceMax[j] === dice){
-     return diceMax[j];}
-    for (var i = 0; i < diceName.length; i++){     
-    if (diceName[i] === dice){
-     return Math.floor(Math.random()*(diceMax[i]-diceMin[i]+1)+diceMin[i]);
+    const min = 1;
+    if (dices.includes(dice) === true){
+        let max = Number(dice.substring(1));   
+        return Math.floor(Math.random()*(max-min+1)+min); 
     }
-}
-}
-}
-}
-console.log(random('d20'));
+     return false;  
+    }
+console.log(random('d16'));
